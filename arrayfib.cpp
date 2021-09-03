@@ -6,7 +6,7 @@ int nhap(int &n)
     cin>>n;
 }
 
-void array1(int n, long long f[])
+void array1(int n, long f[])
 {
         f[0] = 0;
         f[1] = 1;
@@ -17,7 +17,7 @@ void array1(int n, long long f[])
 int main()
 {
     int n;
-    long long f[999];
+    long f[999];
     nhap(n);
     array1(n, f);
     cout<<f[n-1];
