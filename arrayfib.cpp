@@ -10,7 +10,7 @@ void array1(int n, long f[])
 {
         f[0] = 0;
         f[1] = 1;
-        for(int i = 2; i < 999; i++)
+        for(int i = 2; i < 80; i++)
                 f[i] = f[i-1] + f[i-2];
 }
 
