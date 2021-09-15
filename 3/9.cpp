@@ -14,7 +14,7 @@ void displayMatrix(int arr[][100], int m, int n)
         for(int j = 0; j < n; j++)
         {
             cout<<arr[i][j];
-            if(i < n - 1) cout<<" ";
+            if(j < n - 1) cout<<".";
         }
 
         if(i < m - 1) cout<<endl;
