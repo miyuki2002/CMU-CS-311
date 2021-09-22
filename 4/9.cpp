@@ -7,14 +7,17 @@ int isWhiteSpace(char str)
 void printWords(char str[201])
 {
     int dem=0;
-	for(int i=0;str[i]!='\0';i++)
+	while (str[dem] != '\0')
 		dem++;
-	for(int j=0;j<dem;j++)
+	for(int i = 0; i < dem; i++)
 	{
-		if(!isWhiteSpace(str[j]) && isWhiteSpace(str[j+1]) || !isWhiteSpace(str[j]) && !isWhiteSpace(str[j+1]) && j+1 == dem-1)
+		if(!isWhiteSpace(str[i]) && !isWhiteSpace(str[i+1]) || !isWhiteSpace(str[i]) && isWhiteSpace(str[i+1]))
 		{
-
+			if(!isWhiteSpace(str[i]) && isWhiteSpace(str[i+1]))
+				cout<<str[i]<<endl;
+			cout<<str[i];
 		}
+
 	}
 }
 int main()

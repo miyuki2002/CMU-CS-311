@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
-void xoa(char str[],int vitrixoa)
+void xoa(char str[],int n)
 {
 	int len=0;
 	for(int i=0;str[i] != '\0';i++)
 		len++;
-	for(int i = vitrixoa+1;i<len;i++)
+	for(int i = n+1;i<len;i++)
 	{
 		str[i-1] = str[i];
 	}
@@ -34,7 +34,7 @@ void iTrim1(char str[])
     {
     	if(str[len-1] == ' ')
     	{
-    		Xoa(str,len--);
+    		xoa(str,len--);
     	}
     	else
     	{
@@ -48,6 +48,6 @@ int main()
     cin.getline(str, 200);
     iTrim(str);
     iTrim1(str);
-    cout << "" << str << "";
+    cout << "_" << str << "_";
     return 0;
 }
