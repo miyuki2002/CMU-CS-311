@@ -15,7 +15,8 @@ void printWords(char str[201])
 		{
 			if(!isWhiteSpace(str[i]) && isWhiteSpace(str[i+1]))
 				cout<<str[i]<<endl;
-			cout<<str[i];
+            if(!isWhiteSpace(str[i]) && !isWhiteSpace(str[i+1]))
+                cout<<str[i];
 		}
 
 	}
