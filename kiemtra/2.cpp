@@ -3,6 +3,8 @@
 #include<math.h>
 using namespace std;
 
+
+
 bool NamNhuan(int nam)
 {
 	if ((nam % 4 == 0 && nam % 100 != 0) || nam % 400 == 0)
@@ -123,6 +125,7 @@ void chuanhoaten(string &hoten)
 	}
 }
 
+
 class Employee{
 private:
     string hoten;
@@ -139,18 +142,75 @@ public:
     void input()
     {
         getline(cin, hoten);
-        do{
         cin>>this->ngay>>this->thang>>this->nam;
-        }while(!verify(ngay,thang,nam));
         cin>>this->Salary;
-        xoakituthua(hoten);
-        chuanhoaten(hoten);
     }
+    int getSalary()
+	{
+		return Salary;
+	}
     void display()
     {
 
         cout<<"- Full Name: "<<this->hoten<<endl<<"- Birth Date: "<<this->ngay<<"/"<<this->thang<<"/"<<this->nam<<endl<<"- Salary: "<<this->Salary;
     }
+};
+
+
+class Shop
+{
+public:
+	Shop()
+	{
+		this->len = 0;
+		this->pArr = NULL;
+		this->Totalsalary =0;
+		this->ShopName ="N/A";
+	}
+	void input()
+	{
+		getline(cin,this->ShopName);
+		cin>>this->len;
+		pArr = new Employee[this->len];
+		for(int i=0;i<this->len;i++)
+		{
+			pArr[i].input();
+		}
+	}
+	int getTotalSalary(){
+		for(int i=0;i<this->len;i++)
+		{
+			this->Totalsalary += pArr[i].getSalary();
+		}
+		return this->Totalsalary;
+	}
+	void display()
+	{
+		if(len==0)
+			cout<<'"'<<ShopName<<'"'<<" has no employees"<<endl;
+		if(len==1){
+			cout<<ShopName<<" has an employee"<<endl;
+			for(int i=0;i<this->len;i++)
+            {
+                pArr[i].display();
+                cout<<endl;
+            }
+		}
+		if(len>1){
+			cout<<ShopName<<" has "<<this->len<<" employees"<<endl;
+            for(int i=0;i<this->len;i++)
+            {
+                cout<<"EMPLOYEE: "<<i+1<<endl;
+                pArr[i].display();
+                cout<<endl;
+            }
+		}
+	}
+private:
+	int len;
+	Employee* pArr;
+	int Totalsalary;
+	string ShopName;
 };
 
 int main()
