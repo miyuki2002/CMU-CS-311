@@ -4,34 +4,61 @@
 using namespace std;
 
 
-class Employee{
+class Date
+{
 private:
-    string hoten;
-    int ngay,thang,nam;
-    long long Salary;
+    int day;
+    int month;
+    int year;
 public:
 
-    Employee(){
-        this->hoten = "Not Available";
-        this->ngay = 1; thang = 1; nam = 2000;
-        this->Salary = 0;
+	Date(){}
+    Date(int day, int month, int year) {
+        this->day = day;
+        this->month = month;
+        this->year = year;
     }
-
-    void input()
-    {
-        getline(cin, hoten);
-        cin>>this->ngay>>this->thang>>this->nam;
-        cin>>this->Salary;
+    void display() {
+        cout << day << "/" << month << "/" << year << endl;
     }
-    int getSalary()
-	{
-		return Salary;
+    void input() {
+        cin >> this->day;
+        cin >> this->month;
+        cin >> this->year;
+    }
+};
+class Employee{
+public:
+	Employee(){
 	}
-    void display()
-    {
-
-        cout<<"- Full Name: "<<this->hoten<<endl<<"- Birth Date: "<<this->ngay<<"/"<<this->thang<<"/"<<this->nam<<endl<<"- Salary: "<<this->Salary;
-    }
+	Employee(string name, Date date,int salary)
+	{
+		this->name = name;
+		this->date = date;
+		this->salary = salary;
+	}
+	void input()
+	{
+		cin>>d;
+		getline(cin,this->name);
+		date.input();
+		cin>>this->salary;
+	}
+	void display()
+	{
+		cout<<"- Full Name: "<<this->name<<endl;
+		cout<<"- Birth Date: ";
+		this->date.display();
+		cout<<"- Salary: "<<this->salary<<endl;
+	}
+	int getSalary()
+	{
+		return salary;
+	}
+private:
+	string name,d;
+	Date date;
+	int salary;
 };
 
 
@@ -56,7 +83,9 @@ public:
 		pArr = new Employee[this->len];
 		for(int i=0;i<this->len;i++)
 		{
+
 			pArr[i].input();
+
 		}
 	}
 	int getTotalSalary(){
@@ -70,7 +99,7 @@ public:
 	{
 		if(len==0)
 			cout<<'"'<<ShopName<<'"'<<" has no employees"<<endl;
-		if(len==1){
+		else if(len==1){
 			cout<<ShopName<<" has an employee"<<endl;
 			for(int i=0;i<this->len;i++)
             {
@@ -78,7 +107,7 @@ public:
                 cout<<endl;
             }
 		}
-		if(len>1){
+		else if(len>1){
 			cout<<ShopName<<" has "<<this->len<<" employees"<<endl;
             for(int i=0;i<this->len;i++)
             {
