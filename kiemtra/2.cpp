@@ -28,6 +28,10 @@ public:
     }
 };
 class Employee{
+private:
+	string name,d;
+	Date date;
+	int salary;
 public:
 	Employee(){
 	}
@@ -40,7 +44,7 @@ public:
 	void input()
 	{
 		cin>>d;
-		getline(cin,this->name);
+		getline(cin,name);
 		date.input();
 		cin>>this->salary;
 	}
@@ -55,10 +59,6 @@ public:
 	{
 		return salary;
 	}
-private:
-	string name,d;
-	Date date;
-	int salary;
 };
 
 
@@ -104,7 +104,6 @@ public:
 			for(int i=0;i<this->len;i++)
             {
                 pArr[i].display();
-                cout<<endl;
             }
 		}
 		else if(len>1){
