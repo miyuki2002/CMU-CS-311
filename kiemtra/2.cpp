@@ -3,6 +3,64 @@
 #include<math.h>
 using namespace std;
 
+void xoakituthua(string &str)
+{
+
+	while (str[0] == ' ')
+	{
+		str.erase(str.begin() + 0);
+	}
+
+
+
+	while (str[str.length() - 1] == ' ')
+	{
+		str.erase(str.begin() + str.length() - 1);
+	}
+}
+
+
+void xoakitutrang(string &str)
+{
+	for (int i = 0; i < str.length(); i++)
+	{
+
+		if (str[i] == ' ' && str[i + 1] == ' ')
+		{
+			str.erase(str.begin() + i);
+			i--;
+		}
+	}
+}
+
+
+void chuanhoaten(string &hoten)
+{
+
+	 char *strlwr(char *hoten);
+
+	if (hoten[0] != ' ')
+	{
+		if (hoten[0] >= 97 && hoten[0] <= 122)
+		{
+			hoten[0] -= 32;
+		}
+
+	}
+
+	for (int i = 0; i < hoten.length() - 1; i++)
+	{
+		if (hoten[i] == ' ' && hoten[i + 1] != ' ')
+		{
+
+			if (hoten[i + 1] >= 97 && hoten[i + 1] <= 122)
+			{
+
+				hoten[i + 1] -= 32;
+			}
+		}
+	}
+}
 
 class Date
 {
@@ -43,10 +101,12 @@ public:
 	}
 	void input()
 	{
-		cin>>d;
-		getline(cin,name);
+	    do{
+            getline(cin,name);
+		}while(name == "");
 		date.input();
 		cin>>this->salary;
+		chuanhoaten(name);
 	}
 	void display()
 	{
@@ -112,7 +172,7 @@ public:
             {
                 cout<<"EMPLOYEE: "<<i+1<<endl;
                 pArr[i].display();
-                cout<<endl;
+                //cout<<endl;
             }
 		}
 	}
